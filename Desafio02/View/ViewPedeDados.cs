@@ -1,14 +1,18 @@
-﻿namespace Desafio02.View
+﻿using Desafio02.Form;
+
+namespace Desafio02.View
 {
     internal class ViewPedeDados
     {
 
-        internal void PedeDados()
+        internal ConverterForm PedeDados()
         {
             string origem = PedeMoedaOrigem();
             string destino = PedeMoedaDestino();
             string valor = PedeValor();
-            VerificaMoedasIguais(origem, destino);  
+            VerificaMoedasIguais(origem, destino);
+            ConverterForm converterForm = new ConverterForm(origem, destino, valor);
+            return converterForm;
         }
 
         private string PedeMoedaOrigem()

@@ -1,4 +1,5 @@
-﻿using Desafio02.Model;
+﻿using Desafio02.Form;
+using Desafio02.Model;
 using Desafio02.View;
 
 namespace Desafio02.Controller
@@ -6,14 +7,16 @@ namespace Desafio02.Controller
     internal class Controlador
     {
         ViewPedeDados viewPedeDados = new ViewPedeDados();
-        public void Start()
-        {
-            viewPedeDados.PedeDados();
-        }
+        RequestHtml request = new RequestHtml();
 
-        public void CriaConverter(string origem, string destino, string valor)
+
+        public async Task Start()
         {
-            Converter objConverter = new Converter(origem, destino, valor);
+            ConverterForm converterForm = viewPedeDados.PedeDados();
+            Converter converter = new Converter(converterForm.Origem, converterForm.Destino, converterForm.Valor);
+            var teste = await request.GetJson(converter);
+            Console.WriteLine(teste);
+
         }
     }
 }
