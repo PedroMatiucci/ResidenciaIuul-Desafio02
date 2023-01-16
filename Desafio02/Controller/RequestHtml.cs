@@ -10,13 +10,11 @@ namespace Desafio02.Controller
             client.DefaultRequestHeaders.Accept.Clear();
             string url = MontaUrl(converter);
             var json = await client.GetStringAsync(url);
-            Console.WriteLine(json);
             return json;
         }
 
         internal static string MontaUrl(Converter converter)
         {
-            //Melhorar ess codigo
             return $"https://api.exchangerate.host/convert?from={converter.Origem}&to={converter.Destino}&amount={converter.Valor}";
         }
     }

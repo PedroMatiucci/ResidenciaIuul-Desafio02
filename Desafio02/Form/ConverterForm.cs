@@ -7,8 +7,8 @@
         public double Valor { get; set; }
         public ConverterForm(string origem, string destino, string valor)
         {
-            Origem = origem;
-            Destino = destino;
+            Origem = origem.ToUpper();
+            Destino = destino.ToUpper();
             Valor = Double.Parse(valor);
         }
     }

@@ -26,5 +26,10 @@ namespace Desafio02.View
         {
             Console.WriteLine("\nErro:As Moedas Precisam Ser Diferentes");
         }
+
+        internal static void ExibeMensagemErroConversao()
+        {
+            Console.WriteLine("\nErro:A Conversao Falhou, Verifique os valores e tente novamente");
+        }
     }
 }
