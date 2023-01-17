@@ -6,15 +6,18 @@ namespace Desafio02.Controller
     {
         public async Task<string> GetJson(Converter converter)
         {
+            //Faz o request html
+            string json = "";
             using HttpClient client = new();
             client.DefaultRequestHeaders.Accept.Clear();
             string url = MontaUrl(converter);
-            var json = await client.GetStringAsync(url);
+            json = await client.GetStringAsync(url);
             return json;
         }
 
         internal static string MontaUrl(Converter converter)
         {
+            //Monta a url para o request com os dados fornecidos na view
             return $"https://api.exchangerate.host/convert?from={converter.Origem}&to={converter.Destino}&amount={converter.Valor}";
         }
     }

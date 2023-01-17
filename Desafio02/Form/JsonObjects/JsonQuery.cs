@@ -2,6 +2,7 @@
 {
     internal class JsonQuery
     {
+        //Objeto voltado para armazenamento dos dados do json
         public string from { get; }
         public string to { get;}
         public int amount { get; }

@@ -7,6 +7,7 @@ namespace Desafio02.View
 
         internal ConverterForm PedeDados()
         {
+            //Pede os dados e cria um form com  eles
             string origem = PedeMoedaOrigem();
             string destino = PedeMoedaDestino();
             string valor = PedeValor();
@@ -17,6 +18,7 @@ namespace Desafio02.View
 
         private string PedeMoedaOrigem()
         {
+            //Pede os dados e verfica se sao validos
             string input;
             do
             {
@@ -30,6 +32,7 @@ namespace Desafio02.View
 
         private string PedeMoedaDestino()
         {
+            //Pede os dados e verfica se sao validos
             string input;
             do
             {
@@ -41,6 +44,7 @@ namespace Desafio02.View
 
         private string PedeValor()
         {
+            //Pede os dados e verfica se sao validos
             string input;
             do
             {
@@ -52,6 +56,7 @@ namespace Desafio02.View
 
         internal static bool ValidaMoeda(string moeda)
         {
+            //Pede os dados e verfica se sao validos
             if (string.IsNullOrEmpty(moeda))
             {
                 ViewErros.ExibeMensagemErroMoedaCaracteres();
@@ -67,6 +72,7 @@ namespace Desafio02.View
 
         internal static bool ValidaValor(string valor)
         {
+            //Pede os dados e verfica se sao validos
             double valorConvertido;
             try
             {
@@ -87,6 +93,7 @@ namespace Desafio02.View
 
         internal void VerificaMoedasIguais(string moedaOrigem, string moedaDestino)
         {
+            //Pverfica se  as moedas sao iguais
             if (moedaDestino.ToUpper() == moedaOrigem.ToUpper())
             {
                 ViewErros.ExibeMensagemErroMoedasIguais();

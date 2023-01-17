@@ -2,6 +2,7 @@
 {
     internal class ConverterForm
     {
+        //Form para os dados recebidos da view
         public string Origem { get; set; }
         public string Destino { get; set; }
         public double Valor { get; set; }

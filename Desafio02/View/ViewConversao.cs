@@ -11,6 +11,8 @@ namespace Desafio02.View
     {
         public void ExibeConversao(Convertido convertido)
         {
+            //Exibe o valor convertido
+            //Formata os valores para o estilo certo
             string origemFormatado = String.Format("{0:0.00}", convertido.ValorOrigem);
             string destinoFormatado = String.Format("{0:0.00}", convertido.ValorDestino);
             string taxaFormatada = String.Format("{0:0.000000}", convertido.Taxa);

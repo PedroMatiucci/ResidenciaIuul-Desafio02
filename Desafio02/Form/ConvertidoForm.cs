@@ -4,6 +4,7 @@ namespace Desafio02.Form
 {
     internal class ConvertidoForm
     {
+        //Form voltado para a descompresao do json
         public double Rate { get; }
         public double Result { get; }
         public string From { get; }

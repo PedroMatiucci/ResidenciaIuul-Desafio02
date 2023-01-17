@@ -8,6 +8,8 @@ namespace Desafio02.View
 {
     internal class ViewErros
     {
+
+        //Clase responsavel pelas mensagens de erro
         public static void ExibeMensagemErroValor()
         {
             Console.WriteLine("\nErro: Insira Um Valor Maior que zero");
@@ -30,6 +32,12 @@ namespace Desafio02.View
         internal static void ExibeMensagemErroConversao()
         {
             Console.WriteLine("\nErro:A Conversao Falhou, Verifique os valores e tente novamente");
+        }
+
+
+        internal static void ExibeMensagemErroRede()
+        {
+            Console.WriteLine("\nErro:Verifique sua conexao e tente novamente");
         }
     }
 }
