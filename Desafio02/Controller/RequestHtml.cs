@@ -4,7 +4,7 @@ namespace Desafio02.Controller
 {
     internal class RequestHtml
     {
-        public async Task<string> GetJson(Converter converter)
+        public async Task<string> GetJson(Conversao converter)
         {
             //Faz o request html
             string json = "";
@@ -15,7 +15,7 @@ namespace Desafio02.Controller
             return json;
         }
 
-        internal static string MontaUrl(Converter converter)
+        internal static string MontaUrl(Conversao converter)
         {
             //Monta a url para o request com os dados fornecidos na view
             return $"https://api.exchangerate.host/convert?from={converter.Origem}&to={converter.Destino}&amount={converter.Valor}";

@@ -5,14 +5,14 @@ namespace Desafio02.View
     internal class ViewPedeDados
     {
 
-        internal ConverterForm PedeDados()
+        internal DadosConversao PedeDados()
         {
             //Pede os dados e cria um form com  eles
             string origem = PedeMoedaOrigem();
             string destino = PedeMoedaDestino();
             string valor = PedeValor();
             VerificaMoedasIguais(origem, destino);
-            ConverterForm converterForm = new ConverterForm(origem, destino, valor);
+            DadosConversao converterForm = new DadosConversao(origem, destino, valor);
             return converterForm;
         }
 

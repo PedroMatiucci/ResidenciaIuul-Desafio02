@@ -1,7 +1,6 @@
 ﻿using Desafio02.Form;
 using Desafio02.Model;
 using Desafio02.View;
-using System;
 using System.Text.Json;
 
 namespace Desafio02.Controller
@@ -15,23 +14,26 @@ namespace Desafio02.Controller
 
         public async Task Start()
         {
-            ConverterForm converterForm = viewPedeDados.PedeDados();
-            Converter converter = new Converter(converterForm.Origem, converterForm.Destino, converterForm.Valor);
-            var json = await RequestJson(converter);
-            ConvertidoForm jsonConvertido = await ConverteJson(json);
-            Convertido conversao = await CriaConversao(jsonConvertido);
-            viewConversao.ExibeConversao(conversao);
-            await Start();
+            while (true)
+            {
+                DadosConversao converterForm = viewPedeDados.PedeDados();
+                Conversao converter = new Conversao(converterForm.Origem, converterForm.Destino, converterForm.Valor);
+                var json = await RequestJson(converter);
+                DadosConvertido jsonConvertido = await ConverteJson(json);
+                Convertido conversao = await CriaConversao(jsonConvertido);
+                viewConversao.ExibeConversao(conversao);
+            }
+
         }
 
-        public async Task<ConvertidoForm?> ConverteJson(string json)
+        public async Task<DadosConvertido?> ConverteJson(string json)
         {
             //Deserealiza o json e  o transforma num objeto com os campos que temos interesse
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            ConvertidoForm? jsonConvertido = null;
+            DadosConvertido? jsonConvertido = null;
             try
             {
-                jsonConvertido = JsonSerializer.Deserialize<ConvertidoForm>(json, options);
+                jsonConvertido = JsonSerializer.Deserialize<DadosConvertido>(json, options);
             }
             catch (Exception ex)
             {
@@ -43,20 +45,20 @@ namespace Desafio02.Controller
             return jsonConvertido;
         }
 
-        public async Task<Convertido> CriaConversao(ConvertidoForm form)
+        public async Task<Convertido> CriaConversao(DadosConvertido form)
         {
             //Trasnforma o Form num objeto definitivo
-            if(form == null)
+            if (form == null)
             {
                 ViewErros.ExibeMensagemErroConversao();
                 await Start();
             }
-           
+
             Convertido convertido = new Convertido(form.Rate, form.Amount, form.Result, form.From, form.To);
             return convertido;
         }
 
-        public async Task<string> RequestJson(Converter converter)
+        public async Task<string> RequestJson(Conversao converter)
         {
             //Faz o request html 
             string json = "";
@@ -64,7 +66,7 @@ namespace Desafio02.Controller
             {
                 json = await request.GetJson(converter);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 //Mensagem de erro caso a rede falhe
                 ViewErros.ExibeMensagemErroRede();

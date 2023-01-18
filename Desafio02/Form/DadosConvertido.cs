@@ -2,7 +2,7 @@
 
 namespace Desafio02.Form
 {
-    internal class ConvertidoForm
+    internal class DadosConvertido
     {
         //Form voltado para a descompresao do json
         public double Rate { get; }
@@ -15,7 +15,7 @@ namespace Desafio02.Form
 
         public JsonInfo Info { get; }
 
-        public ConvertidoForm(double result, JsonQuery query, JsonInfo info)
+        public DadosConvertido(double result, JsonQuery query, JsonInfo info)
         {
             Rate = info.rate;
             Result = result;
